@@ -1,7 +1,4 @@
 FROM ruby:2.3.0
-RUN mkdir -p /usr/app
-
-ENV NODE_ENV production
 
 RUN ["/bin/bash", "-c", "set -o pipefail \
   && apt-get update \
