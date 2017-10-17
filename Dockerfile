@@ -1,15 +1,15 @@
-FROM ruby:2.3.5-slim
+FROM ruby:2.3.0
 
 RUN ["/bin/bash", "-c", "set -o pipefail \
   && apt-get update \
-  && apt-get -y install apt-transport-https curl \
+  && apt-get -y install apt-transport-https \
   && echo \"deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main\" > /etc/apt/sources.list.d/pgdg.list \
   && curl -s https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*"]
 
 RUN ["/bin/bash", "-c", "set -o pipefail \
-  && curl -sL https://deb.nodesource.com/setup_8.x | bash -"]
+  && curl -sL https://deb.nodesource.com/setup_6.x | bash -"]
 
 RUN ["/bin/bash", "-c", "export CLOUD_SDK_REPO=\"cloud-sdk-$(lsb_release -c -s)\" \
   && echo \"deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main\" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
@@ -23,8 +23,6 @@ RUN apt-get update \
       postgresql-client-9.4 \
       google-cloud-sdk \
       kubectl \
-      imagemagick \
-      build-essential \ 
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
