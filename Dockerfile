@@ -1,4 +1,4 @@
-FROM ruby:2.3.5-alpine
+FROM ruby:2.3.5-slim
 
 RUN ["/bin/bash", "-c", "set -o pipefail \
   && apt-get update \
