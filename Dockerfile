@@ -1,4 +1,4 @@
-FROM ruby:2.3.5-slim
+FROM ruby:2.3.5-alpine
 
 RUN ["/bin/bash", "-c", "set -o pipefail \
   && apt-get update \
@@ -23,6 +23,8 @@ RUN apt-get update \
       postgresql-client-9.4 \
       google-cloud-sdk \
       kubectl \
+      imagemagick \
+      build-essential \ 
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
