@@ -21,8 +21,6 @@ RUN apt-get update \
       libreadline-dev\
       nodejs \
       postgresql-client-9.4 \
-      google-cloud-sdk \
-      kubectl \
       imagemagick \
       build-essential \ 
   && apt-get clean \
