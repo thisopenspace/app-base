@@ -8,6 +8,7 @@ RUN ["/bin/bash", "-c", "set -o pipefail \
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt-get update \
   && apt-get -y install \
+      git \
       libpq-dev \
       libreadline-dev\
       nodejs \
